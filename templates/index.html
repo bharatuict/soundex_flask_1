@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soundex</title>
+    <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" 
+    integrity="sha512-5fsy+3xG8N/1PV5MIJz9ZsWpkltijBI48gBzQ/Z2eVATePGHOkMIn+xTDHIfTZFVb9GMpflF2wOWItqxAP2oLQ==" 
+    crossorigin="anonymous" 
+    />
+   
+
+    <style>
+        .alert {
+          background: blue;
+          padding: 2rem;
+          border-radius: 5px;
+          color: white;
+          margin: 2rem;
+          font-size: 15px
+        }
+    </style>
+
+
+</head>
+<body>
+    <div class="container">
+        <h3>
+            Soundex Converter
+        </h3>
+    </div>
+   
+    <!--form-->
+    <div class="container">
+        <form action = "/posts" method="POST" >
+          <label for="Transmitted Address Line 1">Text String 1</label>
+          
+          <input
+            type="text"
+            placeholder=" "
+            class="u-full-width"
+            id = "string1" 
+            name="string1"   
+          />
+  
+          <label for="Database Address Line 1">Text String 2</label>
+          <input
+            type="text"
+            placeholder=" "
+            class="u-full-width"
+            id = "string2"
+            name="string2"    
+          />
+  
+          <input type="submit" value="Convert" >
+         
+        </form>
+     
+          
+          <div class="alert">
+            {% for name in names %}
+              <hr>
+              <br>
+              <h6>Text String 1:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ name.content1 }}</h6>
+              <br>
+              <h6>Text String 2:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ name.content2 }}</h6>
+              <br>
+              <h6>Soundex Score Text String 1:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ name.content3 }}</h6>
+              <br>
+              <h6>Soundex Score Text String 2:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ name.content4 }}</h6>
+              <br>
+              <a href = '/posts/delete/{{name.id}}'>Delete</a>
+              <hr>
+            {% endfor %}
+
+            
+          </div>
+
+          
+</body>
+
+
+</html>
+
